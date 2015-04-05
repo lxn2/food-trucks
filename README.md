@@ -17,8 +17,8 @@ As a user, some minimal functionalities I would want out of the food trucks serv
 With these in mind, I set out to design the back end of this system. 
 
 ###Architecture
-**Django REST Framework** for the service design. It scaffolds with boilerplate code and allows me to focus on important logic. I also chose it because it is written in Python and because it has a well-developed community of users.
 ```
+**Django REST Framework** for the service design. It scaffolds with boilerplate code and allows me to focus on important logic. I also chose it because it is written in Python and because it has a well-developed community of users.
 **Heroku** for hosting. Django/Python is one of the main infrastructures/languages that it supports.
 **SQLite** for development database. Queries are very fast and appropriate for development.
 **PostgreSQL** for production database. This is provided for free by Heroku.
@@ -39,9 +39,9 @@ This model represents the food trucks. It will have the most important data as i
 
 ####FoodTypes
 This model represents the food types. There are 20 items that I pre-determined in FOOD_CHOICES tuple (*tacos, burgers, hot dogs,* etc.):
-
+```
 **food** INTEGER choices
-
+```
 
 
 
@@ -51,25 +51,21 @@ FoodTrucks and FoodTypes have a many to many relationship. That way, we'll be ab
 
 
 ###Files I Authored
+```
 **quickstart/models.py**
-
 Holds the FoodTrucks and FoodTypes model. Represents the schema of the database as well.
 
-
 **quickstart/management/commands/populate.py**
-
 Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint. I only processed records where the facilities had 'APPROVED' permit statuses. There were a lot of duplicate food trucks but I kept them anyway since some do seem to have different addresses and coordinates.
 
 *Usage: python manage.py populate datasf.json* 
 
 
 **quickstart/serializers.py**
-
 Determines which FoodTrucks and FoodTypes fields are served when queried. 
 
 
 **quickstart/tests.py**
-
 Unit tests, written to test Views and Models which have custom functions in them.
 
 
@@ -84,9 +80,8 @@ the results returned will be filtered so that food trucks fall within 2 miles no
 
 
 **tutorial/urls.py**
-
 Binds URI to the views.
-
+```
 
 ###Example queries
 Get the API Root
