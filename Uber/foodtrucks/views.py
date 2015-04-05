@@ -25,7 +25,18 @@ class FoodTrucksList(generics.ListAPIView):
     	distance = self.request.QUERY_PARAMS.get('distance', None)
 
     	if query_long is not None and query_lat is not None:
-    		east_long, west_long, north_last, south_lat = self._get_latlong_range(query_lat, query_long, distance)
+    		try:
+	    		query_long = float(query_long)
+	    		query_lat = float(query_lat)
+	    	except:
+	    		print "Invalid coordinates"
+	    		return queryset
+
+	    	try:
+    			east_long, west_long, north_last, south_lat = self._get_latlong_range(query_lat, query_long, distance)
+    		except:
+    			print "Invalid distance"
+    			return queryset
     		queryset = queryset.filter(longitude__gt=west_long, longitude__lt=east_long, latitude__gt=south_lat, latitude__lt=north_last)
     	return queryset
 
@@ -35,6 +46,12 @@ class FoodTrucksList(generics.ListAPIView):
     def _get_latlong_range(self, query_lat, query_long, distance):
     	if distance is None:
     		distance = 1
+    		print 
+    	else:
+			try:
+				distance = float(distance)
+			except:
+				print "Cannot convert to number"
 
     	origin = LatLon(query_lat, query_long)
 

@@ -9,7 +9,7 @@ https://docs.djangoproject.com/en/1.7/ref/settings/
 """
 
 # Build paths inside the project like this: os.path.join(BASE_DIR, ...)
-import os
+import os, sys
 import dj_database_url
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 
@@ -65,7 +65,14 @@ WSGI_APPLICATION = 'Uber.wsgi.application'
 # https://docs.djangoproject.com/en/1.7/ref/settings/#databases
 DATABASES = {
     'default': dj_database_url.config(default='postgres://ulfqqxoztlisuk:uWHrdDjvYR1KWD9abuEurNLlMW@ec2-107-21-104-188.compute-1.amazonaws.com:5432/d8ksg5idbug547'),
+    'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
+    }
 }
+if 'test' in sys.argv:
+    DATABASES['default']['ENGINE'] = 'django.db.backends.sqlite3'
+    DATABASES['default']['NAME'] = 'databasename.db3'
 #DATABASES = {
 #    'default': {
 #        'ENGINE': 'django.db.backends.sqlite3',
