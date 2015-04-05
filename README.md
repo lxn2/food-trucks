@@ -58,7 +58,7 @@ Holds the FoodTrucks and FoodTypes model. Represents the schema of the database 
 **quickstart/management/commands/populate.py**
 Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint. I only processed records where the facilities had 'APPROVED' permit statuses. There were a lot of duplicate food trucks but I kept them anyway since some do seem to have different addresses and coordinates.
 
-*Usage: python manage.py populate datasf.json* 
+Usage: python manage.py populate datasf.json
 
 
 **quickstart/serializers.py**
@@ -70,12 +70,10 @@ Unit tests, written to test Views and Models which have custom functions in them
 
 
 **quickstart/views.py**
-Determines the queryset that is returned for FoodTrucks and FoodTypes upon rquest.
+Determines the queryset that is returned for FoodTrucks and FoodTypes upon request.
 
 FoodTrucksSerializer supports url query parameters to filter FoodTrucks based on longitude, latitude, and distance. For example, if given
-
->https://desolate-eyrie-6590.herokuapp.com/foodtrucks?longitude=-122.394594036205000000000000000000&latitude=37.787900097818100000000000000000&distance=2
-
+https://desolate-eyrie-6590.herokuapp.com/foodtrucks?longitude=-122.394594036205000000000000000000&latitude=37.787900097818100000000000000000&distance=2
 the results returned will be filtered so that food trucks fall within 2 miles north, south, east, and west. Results are essentially bounded by a square. I decided to use LatLon Python Package to do geocoordinate math, since it can be used to calculate distance between points as well as determine a destination point based on an origin, trajectory and distance.
 
 
