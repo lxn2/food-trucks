@@ -106,7 +106,7 @@ In the future, I want to implement these functions:
 # More from me
 [LinkedIn](www.linkedin.com/in/lynguyen60) - Everything about my professional experience and education
 
-[lynguyen.me](lynguyen.me) - My projects and blogs will go up here. Currently I have a blog where I walk through my thought process and complexity analysis for a brain teaser I did in Python.
+[lynguyen.me](www.lynguyen.me) - My projects and blogs will go up here. Currently I have a blog where I walk through my thought process and complexity analysis for a brain teaser I did in Python.
 
 [Brain Teaser](https://github.com/lxn2/coding-challenges/blob/master/ExtraHop-knight-move-words-soln.py) - The brain teaser code that I mentioned above can be found here.
 
