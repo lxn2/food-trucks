@@ -10,8 +10,10 @@ The data is available on [DataSF: Food Trucks](https://data.sfgov.org/Economy-an
 ##Solution
 ###Use Cases
 As a user, some minimal functionalities I would want out of the food trucks service is
-1.The ability to look at food truck options within .5 miles, 1 mile, 5 miles, etc. from exactly where I current am.
-2.The ability to procure a list of food trucks that serve the type of food that I want to eat right now. Today, I want tacos.
+
+1. The ability to look at food truck options within .5 miles, 1 mile, 5 miles, etc. from exactly where I current am.
+
+2. The ability to procure a list of food trucks that serve the type of food that I want to eat right now. Today, I want tacos.
 
 With these in mind, I set out to design the back end of this system. 
 
@@ -80,7 +82,11 @@ Binds URI to the views.
 
 ###In the future
 In the future, I want to implement these functions:
-1.Ability to search FoodTrucks for any keywords in the fooditems key
-2.Front-end using bootstrap and AngularJS
-3.Implement some machine learning to  determine FoodType based off of the fooditems key, rather than using pre-determined FoodTypes.
-4.Support filtering FoodTrucks by circular radius instead of box radius.
+
+1. Ability to search FoodTrucks for any keywords in the fooditems key
+
+2. Front-end using bootstrap and AngularJS
+
+3. Implement some machine learning to  determine FoodType based off of the fooditems key, rather than using pre-determined FoodTypes.
+
+4. Support filtering FoodTrucks by circular radius instead of box radius.
