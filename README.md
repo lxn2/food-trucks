@@ -61,7 +61,7 @@ Holds the FoodTrucks and FoodTypes model. Represents the schema of the database 
 
 **quickstart/management/commands/populate.py**
 
-Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint.
+Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint. I only processed records where the facilities had 'APPROVED' permit statuses. There were a lot of duplicate food trucks but I kept them any since some do seem to have different addresses and coordinates.
 
 *Usage: python manage.py populate datasf.json* 
 
