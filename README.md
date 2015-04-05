@@ -54,33 +54,44 @@ FoodTrucks and FoodTypes have a many to many relationship. That way, we'll be ab
 
 
 ###Files I Authored
-####quickstart/models.py
+**quickstart/models.py**
+
 Holds the FoodTrucks and FoodTypes model. Represents the schema of the database as well.
 
-####quickstart/management/commands/populate.py
+
+**quickstart/management/commands/populate.py**
+
 Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint.
 
 *Usage: python manage.py populate datasf.json* 
 
-####quickstart/serializers.py
+
+**quickstart/serializers.py**
+
 Determines which FoodTrucks and FoodTypes fields are served when queried. 
 
-####quickstart/tests.py
+
+**quickstart/tests.py**
+
 Unit tests, written to test Views and Models which have custom functions in them.
 
-####quickstart/views.py
+
+**quickstart/views.py**
 Determines the queryset that is returned for FoodTrucks and FoodTypes upon rquest.
 
 FoodTrucksSerializer supports url query parameters to filter FoodTrucks based on longitude, latitude, and distance. For example, if given
 
 *https://desolate-eyrie-6590.herokuapp.com/foodtrucks?longitude=-122.394594036205000000000000000000&latitude=37.787900097818100000000000000000&distance=2*
 
-the results returned will be filtered so that food trucks fall within 2 miles north, south, east, and west. Results are essentially bounded by a square.
+the results returned will be filtered so that food trucks fall within 2 miles north, south, east, and west. Results are essentially bounded by a square. I decided to use LatLon Python Package to do geocoordinate math, since it can be used to calculate distance between points as well as determine a destination point based on an origin, trajectory and distance.
 
-####tutorial/urls.py
+
+**tutorial/urls.py**
+
 Binds URI to the views.
 
 ###In the future
+
 In the future, I want to implement these functions:
 
 1. Ability to search FoodTrucks for any keywords in the fooditems key
@@ -90,3 +101,13 @@ In the future, I want to implement these functions:
 3. Implement some machine learning to  determine FoodType based off of the fooditems key, rather than using pre-determined FoodTypes.
 
 4. Support filtering FoodTrucks by circular radius instead of box radius.
+
+
+# More from me
+[LinkedIn](www.linkedin.com/in/lynguyen60) - Everything about my professional experience and education
+
+[lynguyen.me](lynguyen.me) - My projects and blogs will go up here. Currently I have a blog where I walk through my thought process and complexity analysis for a brain teaser I did in Python.
+
+[Brain Teaser](https://github.com/lxn2/coding-challenges/blob/master/ExtraHop-knight-move-words-soln.py) - The brain teaser code that I mentioned above can be found here.
+
+Happy browsing! :)
