@@ -11,9 +11,9 @@ The data is available on [DataSF: Food Trucks](https://data.sfgov.org/Economy-an
 ###Use Cases
 As a user, some minimal functionalities I would want out of the food trucks service is
 
-1. The ability to look at food truck options within .5 miles, 1 mile, 5 miles, etc. from exactly where I current am.
+1. The ability to look at food truck options within .5 miles, 1 mile, 5 miles, etc. from exactly where I currently am.
 
-2. The ability to procure a list of food trucks that serve the type of food that I want to eat right now. Today, I want tacos.
+2. The ability to procure a list of food trucks that serve the type of food that I want to eat right now. For example, today, I want tacos.
 
 With these in mind, I set out to design the back end of this system. 
 
@@ -22,9 +22,9 @@ With these in mind, I set out to design the back end of this system.
 
 **Heroku** for hosting. Django/Python is one of the main infrastructures/languages that it supports.
 
-**SQLite** for development server. Queries are very fast and appropriate for development.
+**SQLite** for development database. Queries are very fast and appropriate for development.
 
-**PostgreSQL** for production server. This is provided for free by Heroku.
+**PostgreSQL** for production database. This is provided for free by Heroku.
 
 ###Models
 
@@ -49,7 +49,10 @@ This model represents the food types. There are 20 items that I pre-determined i
 **food** INTEGER choices
 
 
-*Relationship*
+
+
+*Relationship:*
+
 FoodTrucks and FoodTypes have a many to many relationship. That way, we'll be able to realize the two functionalities I mentioned earlier. Query FoodTrucks on its *longitude* and *latitude*, and we should be able to get a filtered list of food trucks close by with major FoodTypes that it serves. Search for one of the major FoodTypes, and we should be able get all FoodTrucks that serve it.
 
 
@@ -61,7 +64,7 @@ Holds the FoodTrucks and FoodTypes model. Represents the schema of the database 
 
 **quickstart/management/commands/populate.py**
 
-Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint. I only processed records where the facilities had 'APPROVED' permit statuses. There were a lot of duplicate food trucks but I kept them any since some do seem to have different addresses and coordinates.
+Used to populate initial data in the databases using a json-loadable text file. I used DataSF's FoodTrucks endpoint. I only processed records where the facilities had 'APPROVED' permit statuses. There were a lot of duplicate food trucks but I kept them anyway since some do seem to have different addresses and coordinates.
 
 *Usage: python manage.py populate datasf.json* 
 
@@ -89,6 +92,23 @@ the results returned will be filtered so that food trucks fall within 2 miles no
 **tutorial/urls.py**
 
 Binds URI to the views.
+
+
+###Example queries
+Get the API Root
+>https://desolate-eyrie-6590.herokuapp.com/
+
+Get all food types with restaurants listed under them
+>https://desolate-eyrie-6590.herokuapp.com/foodtypes/
+
+Get all food trucks and their information
+>https://desolate-eyrie-6590.herokuapp.com/foodtrucks/
+
+Get all food trucks within one mile of the coordinate
+>https://desolate-eyrie-6590.herokuapp.com/foodtrucks?longitude=-122.394594036205000000000000000000&latitude=37.787900097818100000000000000000
+
+Get all food trucks within 5 miles of the coordinate
+>https://desolate-eyrie-6590.herokuapp.com/foodtrucks?longitude=-122.394594036205000000000000000000&latitude=37.787900097818100000000000000000&distance=5
 
 ###In the future
 
