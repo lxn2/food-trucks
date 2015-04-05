@@ -102,7 +102,7 @@ Get all food trucks within 5 miles of the coordinate
 In the future, I want to implement these functions:
 ```
 1. Ability to search FoodTrucks for any keywords in the fooditems key
-2. Front-end using bootstrap and AngularJS
+2. Front-end using bootstrap and AngularJS. I chose to keep the DEBUG option in the settings file on, so we have a minimal interface. As a result HTTP error codes are being replaced with run time errors instead.
 3. Implement some machine learning to  determine FoodType based off of the fooditems key, rather than using pre-determined FoodTypes.
 4. Support filtering FoodTrucks by circular radius instead of box radius.
 ```
