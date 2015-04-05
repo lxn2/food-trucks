@@ -71,6 +71,7 @@ class Command(BaseCommand):
                     # if no pre-defined foods found in truck's food listing, categorize as 'OTHER'
                     if not foundFoodMatch:
                         foodTruckRecord.foodtypes.add(self.foodTypeObjs['other'])
+                print applicant
         fp.close()
 
 

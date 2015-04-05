@@ -56,8 +56,8 @@ class FoodTypes(models.Model):
 
 # Represents food trucks. FoodTrucks has many FoodTypes.
 class FoodTrucks(models.Model):
-    name = models.CharField(max_length=100)
-    address = models.CharField(max_length=100, null=True, blank=True)
+    name = models.CharField(max_length=200)
+    address = models.CharField(max_length=200, null=True, blank=True)
     fooditems = models.TextField(max_length=600, null=True, blank=True)
     foodtypes = models.ManyToManyField(FoodTypes, null=True, blank=True, related_name='trucks')
     longitude = models.DecimalField(max_digits=50, decimal_places=30, null=True, blank=True)

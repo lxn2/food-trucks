@@ -1,1 +1,1 @@
-web: gunicorn Tutorial.wsgi --log-file -
+web: gunicorn Uber.wsgi --log-file -
